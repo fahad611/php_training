@@ -4,7 +4,7 @@
 	<title>Students Data</title>
 </head>
 <body>
-<form action="school.php" method="post">
+<form action="insert.php" method="post">
 <table width="500px" border="5" align="center">
 <tr>
 	<td colspan="5" bgcolor="yellow" align="center"><h1>Student Registration</h1></td>
@@ -20,6 +20,10 @@
 <tr>
 	<td align="right">School Name:</td>
 	<td><input type="text" name="school" required="true"></td>
+</tr>
+<tr>
+	<td align="right">Roll Number:</td>
+	<td><input type="text" name="rollnumber" required="true"></td>
 </tr>
 <tr>
 	<td align="right">Result:</td>
@@ -56,10 +60,11 @@ if(isset($_POST['submit'])) {
 	 $name = $_POST['name'];
 	 $fname = $_POST['father'];
 	 $school = $_POST['school'];
+	 $rollnumber = $_POST['rollnumber'];
 	 $result = $_POST['result'];
 
-	 $query = "insert into students(name,father_name,school_name,result) values('$name','$fname',
-	 '$school','$result')";
+	 $query = "insert into students(name,father_name,school_name,roll_number,result) values('$name','$fname',
+	 '$school','$rollnumber','$result')";
 
 
 
@@ -68,7 +73,7 @@ if(isset($_POST['submit'])) {
 	}
 	else
 	{
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		echo "Error: " . $query . "<br>" . mysqli_error($con);
 	}
 
 }
