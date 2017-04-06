@@ -1,27 +1,24 @@
 <?php
 		//Arthematic operators
 		
-		$name = 23 + 10;
-		echo $name;
+			$name = 23 + 10;
+			echo $name;
 
 		//Asignment operators
 
-		$number =  23;
-
-		echo $number;
-
+			$number =  23;
+			echo $number;
 
 		// incrementing and decrementing operators
 
-		$num = 33;
-
-		$num++;
-		echo $num;
+			$num = 33;
+			$num++;
+			echo $num;
 
 		//comparison operators
 
-		$num1 = 33;
-		$num2 = 43;
+			$num1 = 33;
+			$num2 = 43;
 
 		if($num1<$num2){
 
@@ -42,9 +39,4 @@
 		else{
 			echo "no one is true";
 		}
-
-
-
-
-
 ?>
