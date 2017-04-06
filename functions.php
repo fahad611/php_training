@@ -1,16 +1,11 @@
 <?php
+	function userfun(){
+    echo $name = "fahad rashid<br>";
+    echo $age = 18;
+    echo $email = "fahad@gmail.com<br>";
 
-function userfun(){
-   echo $name = "fahad rashid<br>";
-   echo $age = 18;
-   echo $email = "fahad@gmail.com<br>";
+  	include("");
+	}
 
-   include("");
-
-
-}
- userfun();
-
-
-
+ 	userfun();
 ?>
