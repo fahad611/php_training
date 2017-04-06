@@ -2,15 +2,15 @@
 
 	//Global Variables
 
-$x = 75; 
-$y = 25;
+		$x = 75; 
+		$y = 25;
  
-function addition() { 
-    $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y']; 
-}
+	function addition() { 
+    	$GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y']; 
+	}
  
-addition(); 
-echo $z; 
+	addition(); 
+		echo $z; 
        
     //PHP $_SERVER
 
@@ -26,31 +26,31 @@ echo $z;
 	echo "<br>";
 	echo $_SERVER['SCRIPT_NAME'];
 
-		//PHP $_REQUEST
+	//PHP $_REQUEST
 
 	<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
   	Name: <input type="text" name="fname">
 	<input type="submit">
 	</form>
 
-
-       if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
     	// collect value of input field
     	$name = $_REQUEST['fname'];
     	if (empty($name)) {
         echo "Name is empty";
     	} else {
         echo $name;
-    }
-}
+    		}
+		}
 	//PHP $_POST
 
 	<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-	  Name: <input type="text" name="fname">
-	  <input type="submit">
+	 Name: <input type="text" name="fname">
+	 <input type="submit">
+	
 	</form>
 
-	<?php
+<?php
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	    // collect value of input field
 	    $name = $_POST['fname'];
@@ -58,21 +58,11 @@ echo $z;
 		echo "Name is empty";
 	    } else {
 		echo $name;
-	    }
+	    	}
 		}
 
 		//PHP $_GET
-
-	<?php 
+<?php 
 	echo "Study " . $_GET['subject'] . " at " . $_GET['web'];
-	?>
-	
-
-
-
-
-
-
-
-
 ?>
+	
