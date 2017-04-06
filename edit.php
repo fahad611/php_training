@@ -1,22 +1,18 @@
 <?php
-$host='localhost';
-$user='root'; 
-$pass='';
-$db='school';
+	$host='localhost';
+	$user='root'; 
+	$pass='';
+	$db='school';
 
-$con=new mysqli($host,$user,$pass,$db);
+	$con=new mysqli($host,$user,$pass,$db);
 
-if (!$con) {
+	if (!$con) {
 	die("connnection failed:" .mysqli_connect_error());
-}
+		}
 	$edit_record = $_GET['edit'];
-
-
-$query = "SELECT * FROM students where id='$edit_record'";
-
-$run = mysqli_query($con,$query);
-
-while($row=mysqli_fetch_array($run)){
+	$query = "SELECT * FROM students where id='$edit_record'";
+	$run = mysqli_query($con,$query);
+	while($row=mysqli_fetch_array($run)){
 
 		$edit_id = $row['id'];
 		$name = $row['name'];
@@ -24,17 +20,15 @@ while($row=mysqli_fetch_array($run)){
 		$school_name = $row['school_name'];
 		$roll_number = $row['roll_number'];
 		$result = $row['result'];
-}
-
+		}
 ?>
 <!DOCTYPE html>
-<html>
-<head>
+	<head>
 	<title>Students Data</title>
-</head>
+	</head>
 <body>
-<form action="edit.php?edit_id=<?php echo $edit_id; ?>" method="post">
-<table width="500px" border="5" align="center">
+	<form action="edit.php?edit_id=<?php echo $edit_id; ?>" method="post">
+	<table width="500px" border="5" align="center">
 <tr>
 	<td colspan="5" bgcolor="yellow" align="center"><h1>Updating Record</h1></td>
 </tr>
@@ -61,27 +55,20 @@ while($row=mysqli_fetch_array($run)){
 <tr>
 	<td colspan="5" align="center"><input type="submit" name="update" value="Update Now"></td>
 </tr>
-
 	</table>
-	
-</form>
-
-
-
-</body>
+	</form>
+	</body>
 </html>
+
 <?php
-$host='localhost';
-$user='root'; 
-$pass='';
-$db='school';
-
-$con=new mysqli($host,$user,$pass,$db);
-
-if (!$con) {
+	$host='localhost';
+	$user='root'; 
+	$pass='';
+	$db='school';
+	$con=new mysqli($host,$user,$pass,$db);
+	if (!$con) {
 	die("connnection failed:" .mysqli_connect_error());
-}
-
+	}
 	if (isset($_POST['update'])) {
 
 		$edit_id = $_GET['edit_id'];
@@ -96,11 +83,6 @@ if (!$con) {
 
 		if(mysqli_query($con,$query)){
 			header("location: select.php?updated=data has been updated..");
+			}
 		}
-
-		
-
-	}
-
-
 ?>
