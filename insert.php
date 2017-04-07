@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 	<head>
 		<title>Students Data</title>
@@ -38,42 +39,36 @@
 </html>
 
 <?php
-	$host='localhost';
-	$user='root';
-	$pass='';
-	$db='school';
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$db = 'school';
+$con = new mysqli($host, $user, $pass, $db);
 
- $con= new mysqli($host,$user,$pass,$db);
+if (!$con)
+{
+	die("connection failed:" . mysqli_connect_error());
+}
 
-	if(!$con){
-		die("connection failed:" .mysqli_connect_error());
-	}
-	
-	if(isset($_POST['submit'])) {
-	
-		 $name = $_POST['name'];
-		 $fname = $_POST['father'];
-		 $school = $_POST['school'];
-		 $rollnumber = $_POST['rollnumber'];
-		 $result = $_POST['result'];
-
-	 $query = "insert into students(name,father_name,school_name,roll_number,result) values('$name','$fname',
-	 '$school','$rollnumber','$result')";
-
-	if(mysqli_query($con,$query)){
+if (isset($_POST['submit']))
+{
+	$name = $_POST['name'];
+	$fname = $_POST['father'];
+	$school = $_POST['school'];
+	$rollnumber = $_POST['rollnumber'];
+	$result = $_POST['result'];
+	$query = "insert into students(name,father_name,school_name,roll_number,result) values('$name','$fname',
+    '$school','$rollnumber','$result')";
+	if (mysqli_query($con, $query))
+	{
 		echo "Data inserted";
-		}
-	else
-		{
-		echo "Error: " . $query . "<br>" . mysqli_error($con);
-		}
-
 	}
-	mysqli_close($con);
+	else
+	{
+		echo "Error: " . $query . "<br />" . mysqli_error($con);
+	}
+}
+
+mysqli_close($con);
 ?>
-
-
-
-
-
 
