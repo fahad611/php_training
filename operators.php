@@ -1,42 +1,47 @@
 <?php
-		//Arthematic operators
-		
-			$name = 23 + 10;
-			echo $name;
 
-		//Asignment operators
+// Arthematic operators
 
-			$number =  23;
-			echo $number;
+$name = 23 + 10;
+echo $name;
 
-		// incrementing and decrementing operators
+// Asignment operators
 
-			$num = 33;
-			$num++;
-			echo $num;
+$number = 23;
+echo $number;
 
-		//comparison operators
+// incrementing and decrementing operators
 
-			$num1 = 33;
-			$num2 = 43;
+$num = 33;
+$num++;
+echo $num;
 
-		if($num1<$num2){
+// comparison operators
 
-			echo "variables are equal";
-		}
-		else{
-			echo "variables are not equal";
-		}
+$num1 = 33;
+$num2 = 43;
 
-		//logical operator
+if ($num1 < $num2)
+{
+	echo "variables are equal";
+}
+else
+{
+	echo "variables are not equal";
+}
 
-		$num3 = 50;
-		$num4 = 60;
+// logical operator
 
-		if ($num3 == $num4 OR $num3 < $num4) {
-			echo "anyone condtion is true";
-		}
-		else{
-			echo "no one is true";
-		}
+$num3 = 50;
+$num4 = 60;
+
+if ($num3 == $num4 OR $num3 < $num4)
+{
+	echo "anyone condtion is true";
+}
+else
+{
+	echo "no one is true";
+}
+
 ?>
