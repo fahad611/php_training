@@ -1,56 +1,67 @@
+	
+
 <?php
-	$host='localhost';
-	$user='root'; 
-	$pass='';
-	$db='school';
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$db = 'school';
+$con = new mysqli($host, $user, $pass, $db);
 
-	$con=new mysqli($host,$user,$pass,$db);
+if (!$con)
+{
+	die("connnection failed:" . mysqli_connect_error());
+}
 
-	if (!$con) {
-	die("connnection failed:" .mysqli_connect_error());
-		}
-	$edit_record = $_GET['edit'];
-	$query = "SELECT * FROM students where id='$edit_record'";
-	$run = mysqli_query($con,$query);
-	while($row=mysqli_fetch_array($run)){
+$edit_record = $_GET['edit'];
+$query = "SELECT * FROM students where id='$edit_record'";
+$run = mysqli_query($con, $query);
 
-		$edit_id = $row['id'];
-		$name = $row['name'];
-		$f_name = $row['father_name'];
-		$school_name = $row['school_name'];
-		$roll_number = $row['roll_number'];
-		$result = $row['result'];
-		}
+while ($row = mysqli_fetch_array($run))
+{
+	$edit_id = $row['id'];
+	$name = $row['name'];
+	$f_name = $row['father_name'];
+	$school_name = $row['school_name'];
+	$roll_number = $row['roll_number'];
+	$result = $row['result'];
+}
+
 ?>
 <!DOCTYPE html>
 	<head>
 	<title>Students Data</title>
 	</head>
 <body>
-	<form action="edit.php?edit_id=<?php echo $edit_id; ?>" method="post">
+	<form action="edit.php?edit_id=<?php
+echo $edit_id; ?>" method="post">
 	<table width="500px" border="5" align="center">
 <tr>
 	<td colspan="5" bgcolor="yellow" align="center"><h1>Updating Record</h1></td>
 </tr>
 <tr>
 	<td align="right">Student Name:</td>
-	<td><input type="text" name="name" required="true" value="<?php echo $name;?>"></td>
+	<td><input type="text" name="name" required="true" value="<?php
+echo $name; ?>"></td>
 </tr>
 <tr>
 	<td align="right">Father Name:</td>
-	<td><input type="text" name="father" required="true" value="<?php echo $f_name; ?>"></td>
+	<td><input type="text" name="father" required="true" value="<?php
+echo $f_name; ?>"></td>
 </tr>
 <tr>
 	<td align="right">School Name:</td>
-	<td><input type="text" name="school" required="true" value="<?php echo $school_name; ?>"></td>
+	<td><input type="text" name="school" required="true" value="<?php
+echo $school_name; ?>"></td>
 </tr>
 <tr>
 	<td align="right">Roll Number:</td>
-	<td><input type="text" name="rollnumber" required="true" value="<?php echo $roll_number; ?>"></td>
+	<td><input type="text" name="rollnumber" required="true" value="<?php
+echo $roll_number; ?>"></td>
 </tr>
 <tr>
 	<td align="right">Result:</td>
-	<td><input type="text" name="result" required="true" value="<?php echo $result; ?>"></td>
+	<td><input type="text" name="result" required="true" value="<?php
+echo $result; ?>"></td>
 </tr>
 <tr>
 	<td colspan="5" align="center"><input type="submit" name="update" value="Update Now"></td>
@@ -61,28 +72,31 @@
 </html>
 
 <?php
-	$host='localhost';
-	$user='root'; 
-	$pass='';
-	$db='school';
-	$con=new mysqli($host,$user,$pass,$db);
-	if (!$con) {
-	die("connnection failed:" .mysqli_connect_error());
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$db = 'school';
+$con = new mysqli($host, $user, $pass, $db);
+
+if (!$con)
+{
+	die("connnection failed:" . mysqli_connect_error());
+}
+
+if (isset($_POST['update']))
+{
+	$edit_id = $_GET['edit_id'];
+	$name = $_POST['name'];
+	$f_name = $_POST['father'];
+	$s_name = $_POST['school'];
+	$roll_number = $_POST['rollnumber'];
+	$result = $_POST['result'];
+	$query = "update students set  name='$name',father_name='$f_name',school_name='$s_name',
+	$query = "update students set  name='$name',father_name='$f_name',school_name='$s_name',
+	roll_number='$roll_number',result='$result' where id='$edit_id'";
+	{
+		header("location: select.php?updated=data has been updated..");
 	}
-	if (isset($_POST['update'])) {
+}
 
-		$edit_id = $_GET['edit_id'];
-		$name = $_POST['name'];
-		$f_name = $_POST['father'];
-		$s_name = $_POST['school'];
-		$roll_number = $_POST['rollnumber'];
-		$result = $_POST['result'];
-
-		$query = "update students set  name='$name',father_name='$f_name',school_name='$s_name',
-		roll_number='$roll_number',result='$result' where id='$edit_id'";
-
-		if(mysqli_query($con,$query)){
-			header("location: select.php?updated=data has been updated..");
-			}
-		}
 ?>
