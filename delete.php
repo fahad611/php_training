@@ -16,4 +16,5 @@ $query = "DELETE FROM students where id='$delete_id'";
 if (mysqli_query($con, $query))
 {
 	echo "<script>window.open('select.php?deleted = data has been deleted...','_self')</script>";
+}
 ?>
